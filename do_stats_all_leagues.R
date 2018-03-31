@@ -3,7 +3,7 @@ library(ggplot2)
 all.leagues <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80')
 
 sel.male <- unlist(lapply(all.leagues,function(x){grepl("M-",x)}))
-sel.female <- unlist(lapply(all.leagues,function(x){grepl("M-",x)}))
+sel.female <- unlist(lapply(all.leagues,function(x){grepl("F-",x)}))
 sel.female.youth <- unlist(lapply(all.leagues,function(x){grepl("wJ",x)}))
 sel.male.youth <- unlist(lapply(all.leagues,function(x){grepl("mJ",x)}))
 
@@ -17,10 +17,13 @@ names.leagues <- unlist(lapply(names.leagues, function(x)x[1]))
 ids.leagues <- strsplit(unlist(lapply(info.leagues, function(x)x[1])),"score=")
 ids.leagues <- unlist(strsplit(unlist(lapply(ids.leagues, function(x)x[2])),'[[:punct:]]'))
 
-store.folder <- "C:/Users/Acer/Documents/Handball/stats/"
-if(!dir.exists(file.path(store.folder,Sys.Date()))){
-  store.folder <- file.path(store.folder,Sys.Date())
+store.folder <- file.path("C:/Users/Acer/Documents/Handball/stats/",Sys.Date())
+png.folder <- file.path(store.folder,'pngs')
+pdf.folder <- file.path(store.folder,'pdfs')
+if(!dir.exists(store.folder)){
   dir.create(store.folder)
+  dir.create(png.folder)
+  dir.create(pdf.folder)
 }
 
 for(i in 1:length(names.leagues)){
@@ -77,5 +80,7 @@ for(i in 1:length(names.leagues)){
     panel.grid.major = element_line(color="grey80")
   )+coord_flip()+geom_text(aes(label=Tore),nudge_y = q/10)
   file.name <- paste0(league,'.pdf')
-  ggsave(file.path(store.folder,file.name),plot,device = 'pdf')
+  ggsave(file.path(pdf.folder,file.name),plot,device = 'pdf')
+  file.name <- paste0(league,'.png')
+  ggsave(file.path(png.folder,file.name),plot,device = 'png')
 }

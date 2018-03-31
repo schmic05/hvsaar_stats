@@ -6,7 +6,8 @@ library(ggplot2)
 #' file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=27865&teamID=386501')
 #' Verbandsliga komplett
 #' file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=27709&all=1')
-file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=27709&all=1')
+#' file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=27709&all=1')
+file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=28157&all=1')
 
 sel <- unlist(lapply(file,function(x){grepl("sGID",x)}))
 selected <- file[sel]
@@ -26,7 +27,13 @@ for(game in splitted){
   element <- element[has.info]
   element <- unlist(lapply(element,function(x){gsub("\n..[[:alnum:]] ","",x)}))
   element <- lapply(element,function(x){strsplit(x," ")})
-  names <- unlist(lapply(element,function(x){paste(x[[1]][2],x[[1]][3])}))
+  names <- unlist(lapply(element,function(x){
+    if(x[[1]][1]==""){
+      return(paste(x[[1]][2],x[[1]][3]))
+    }else{
+      return(paste(x[[1]][1],x[[1]][2]))
+    }
+  }))
   goals <- unlist(lapply(element,function(x){
     has.goals <- grepl("[[:digit:]]",x[[1]])&!(grepl("[[:punct:]]",x[[1]]))
     if(any(has.goals)){
@@ -38,7 +45,7 @@ for(game in splitted){
   df <- rbind(df,cbind(names,goals))
 }
 clean.df <- function(df){
-  invalid.strings <- c("Nr. Name","A ","B NA","C NA","D NA")
+  invalid.strings <- c("Nr. Name","A ","A NA","B ","B NA","C ","C NA","D ","D NA")
   is.invalid <- unlist(lapply(df$names,function(x){any(unlist(lapply(invalid.strings,function(y){y %in% x})))}))
   df <- df[!is.invalid,]
   df

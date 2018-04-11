@@ -67,8 +67,8 @@ for(i in 1:length(names.leagues)){
     df <- rbind(df,cbind(names,goals))
   }
   clean.df <- function(df){
-    invalid.strings <- c("Nr. Name","A ","A NA","B ","B NA","C ","C NA","D ","D NA")
-    is.invalid <- unlist(lapply(df$names,function(x){any(unlist(lapply(invalid.strings,function(y){y %in% x})))}))
+    invalid.strings <- c("Nr.","Nr. Name","A ","A NA","\n A","B ","B NA","\n B","C ","C NA","\n C","D ","D NA","\n D")
+    is.invalid <- unlist(lapply(as.character(df$names),function(x){any(unlist(lapply(invalid.strings,function(y){y %in% x})))}))
     df <- df[!is.invalid,]
     df
   }

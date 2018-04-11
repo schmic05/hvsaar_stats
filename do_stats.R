@@ -7,7 +7,7 @@ library(ggplot2)
 #' Verbandsliga komplett
 #' file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=27709&all=1')
 #' file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=27709&all=1')
-file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=28157&all=1')
+file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=27713&all=1')
 
 sel <- unlist(lapply(file,function(x){grepl("sGID",x)}))
 selected <- file[sel]
@@ -45,8 +45,8 @@ for(game in splitted){
   df <- rbind(df,cbind(names,goals))
 }
 clean.df <- function(df){
-  invalid.strings <- c("Nr. Name","A ","A NA","B ","B NA","C ","C NA","D ","D NA")
-  is.invalid <- unlist(lapply(df$names,function(x){any(unlist(lapply(invalid.strings,function(y){y %in% x})))}))
+  invalid.strings <- c("Nr.","Nr. Name","A ","A NA","\n A","B ","B NA","\n B","C ","C NA","\n C","D ","D NA","\n D")
+  is.invalid <- unlist(lapply(as.character(df$names),function(x){any(unlist(lapply(invalid.strings,function(y){y %in% x})))}))
   df <- df[!is.invalid,]
   df
 }

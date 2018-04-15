@@ -84,7 +84,7 @@ for(i in 1:length(names.leagues)){
     axis.text.x = element_text(angle = 90), 
     panel.background = element_rect(fill="white",color="black"),
     panel.grid.major = element_line(color="grey80")
-  )+coord_flip()+geom_text(aes(label=Tore),nudge_y = q/10)
+  )+coord_flip()+geom_text(aes(label=Tore),nudge_y = q/10)+ggtitle(paste("Stand:",Sys.Date()))
   file.name <- paste0(league,'.pdf')
   ggsave(file.path(pdf.folder,file.name),plot,device = 'pdf')
   file.name <- paste0(league,'.png')

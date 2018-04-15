@@ -1,5 +1,7 @@
 library(tm)
 library(ggplot2)
+library(gridExtra)
+library(grid)
 #' Männer I
 #' file <- readLines('http://spo.handball4all.de/Spielbetrieb/?orgGrpID=80&score=27709&teamID=384885')
 #' Männer II
@@ -56,13 +58,13 @@ df <- clean.df(df)
 to.plot <- aggregate(df$goals,by=list(df$names),sum,na.rm=T)
 colnames(to.plot) <- c("Name","Tore")
 to.plot$Name <- factor(to.plot$Name, levels = to.plot$Name[order(to.plot$Tore)])
-to.plot <- to.plot[to.plot$Tore>quantile(to.plot$Tore,.9),]
+sel <- quantile(to.plot$Tore,.9)
+to.plot <- to.plot[to.plot$Tore>sel,]
 plot <- ggplot(to.plot,aes(x=Name,y=Tore))+geom_bar(stat = "identity")+theme(
   axis.text.x = element_text(angle = 90), 
   panel.background = element_rect(fill="white",color="black"),
   panel.grid.major = element_line(color="grey80")
   #text=element_text(size=5)
-)+coord_flip()+geom_text(aes(label=Tore),nudge_y = 1)
-pdf('C:/Users/Acer/Desktop/VL_stats_18_03.pdf')
-plot
-dev.off()
+)+coord_flip()+geom_text(aes(label=Tore),nudge_y = 1)+
+  ggtitle(paste("Stand:",Sys.Date()))
+ggsave("C:/Users/Acer/Desktop/VL_stats_18_03.pdf",plot)

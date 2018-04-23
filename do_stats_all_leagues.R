@@ -37,6 +37,7 @@ for(i in 1:length(names.leagues)){
   splitted <- unlist(lapply(splitted,function(x){x[[1]][3]}))
   splitted <- lapply(splitted,function(x){strsplit(x,"\"")})
   splitted <- unlist(lapply(splitted,function(x){x[[1]][2]}))
+  splitted <- splitted[!is.na(splitted)]
   df <- c()
   for(game in splitted){
     doc <- readPDF(control = list(text="-htmlmeta"))(elem=list(uri=game),

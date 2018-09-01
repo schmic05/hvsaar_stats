@@ -68,6 +68,9 @@ for(i in 1:length(names.leagues)){
     df <- rbind(df,cbind(names,goals))
   }
   clean.df <- function(df){
+    if(nrow(df)==0){
+      return(df)
+    }
     invalid.strings <- c("Nr.","Nr. Name","A ","A NA","\n A","B ","B NA","\n B","C ","C NA","\n C","D ","D NA","\n D")
     is.invalid <- unlist(lapply(as.character(df$names),function(x){any(unlist(lapply(invalid.strings,function(y){y %in% x})))}))
     df <- df[!is.invalid,]
@@ -76,16 +79,20 @@ for(i in 1:length(names.leagues)){
   df <- as.data.frame(df)
   df$goals <- as.numeric(as.character(df$goals))
   df <- clean.df(df)
-  to.plot <- aggregate(df$goals,by=list(df$names),sum,na.rm=T)
-  colnames(to.plot) <- c("Name","Tore")
-  to.plot$Name <- factor(to.plot$Name, levels = to.plot$Name[order(to.plot$Tore)])
-  q <- quantile(to.plot$Tore,.9)
-  to.plot <- to.plot[to.plot$Tore>q,]
-  plot <- ggplot(to.plot,aes(x=Name,y=Tore))+geom_bar(stat = "identity")+theme(
-    axis.text.x = element_text(angle = 90), 
-    panel.background = element_rect(fill="white",color="black"),
-    panel.grid.major = element_line(color="grey80")
-  )+coord_flip()+geom_text(aes(label=Tore),nudge_y = q/10)+ggtitle(paste("Stand:",Sys.Date()))
+  if(nrow(df)==0){
+    plot <- ggplot()
+  }else{
+    to.plot <- aggregate(df$goals,by=list(df$names),sum,na.rm=T)
+    colnames(to.plot) <- c("Name","Tore")
+    to.plot$Name <- factor(to.plot$Name, levels = to.plot$Name[order(to.plot$Tore)])
+    q <- quantile(to.plot$Tore,.9)
+    to.plot <- to.plot[to.plot$Tore>q,]
+    plot <- ggplot(to.plot,aes(x=Name,y=Tore))+geom_bar(stat = "identity")+theme(
+      axis.text.x = element_text(angle = 90), 
+      panel.background = element_rect(fill="white",color="black"),
+      panel.grid.major = element_line(color="grey80")
+    )+coord_flip()+geom_text(aes(label=Tore),nudge_y = q/10)+ggtitle(paste("Stand:",Sys.Date()))
+  }
   file.name <- paste0(league,'.pdf')
   ggsave(file.path(pdf.folder,file.name),plot,device = 'pdf')
   file.name <- paste0(league,'.png')

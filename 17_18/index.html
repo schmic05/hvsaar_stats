@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HVSaar Stats</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/small-business.css" rel="stylesheet">
+
+    <!-- RnBeads CSS -->
+    <link href="css/report.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+   
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Heading Row -->
+        <div class="row">
+            <!-- /.col-md-8 -->
+            <div class="col-md-12">
+                <h1>Torsch&uumltzenstatisik zur Saison 2017/2018 f&uumlr alle Spielklassen des Handball Verbandes Saar</h1>
+                <p>Dargestellt sind jeweils die ersten 10% der Torsch&uumltzenliste der jeweiligen Klasse.</p>
+	</div>
+	<div class="figure">
+	<table class="tabsettings">
+	<tbody><tr>
+		<td>Klasse</td>
+		<td>
+			<select id="fig1setting1" onchange="updateFigure('fig1')">
+				<option selected="selected" value="M-SLL">Saarlandliga M&aumlnner</option>
+				<option value="M-VL">Verbandsliga M&aumlnner</option>
+				<option value="M-BZL-O">Bezirksliga Ost M&aumlnner</option>
+				<option value="M-BZL-W">Bezirksliga West M&aumlnner</option>
+				<option value="M-AL-O">A-Liga Ost M&aumlnner</option>
+				<option value="M-AL-W">A-Liga West M&aumlnner</option>
+				<option value="M-BL-N">B-Liga Nord M&aumlnner</option>
+				<option value="M-BL-S">B-Liga S&uumld M&aumlnner</option>
+				<option value="M-Pok">Pokal M&aumlnner</option>
+				<option value="F-SLL">Saarlandliga Frauen</option>
+				<option value="F-BZL-O">Bezirksliga Ost Frauen</option>
+				<option value="F-BZL-W">Bezirksliga West Frauen</option>
+				<option value="F-AL-O">A-Liga Ost Frauen</option>
+				<option value="F-AL-W">A-Liga West Frauen</option>
+				<option value="F-Pok">Pokal Frauen</option>
+				<option value="mJA-SLL">Saarlandliga m&aumlnnliche A</option>
+				<option value="mJA-BZL">Bezirksliga m&aumlnnliche A</option>
+				<option value="mJB-SLL">Saarlandliga m&aumlnnliche B</option>
+				<option value="mJB-BZL">Bezirksliga m&aumlnnliche B</option>
+				<option value="mJB-Pok">Pokal m&aumlnnliche B</option>
+				<option value="mJC-SLL">Saarlandliga m&aumlnnliche C</option>
+				<option value="mJC-BZL-O">Bezirksliga Ost m&aumlnnliche C</option>
+				<option value="mJC-BZL-W">Bezirksliga West m&aumlnnliche C</option>
+				<option value="mJC-Pok">Pokal m&aumlnnliche C</option>
+				<option value="mJD-BZL-1">Bezirksliga Staffel 1 m&aumlnnliche D</option>
+				<option value="mJD-BZL-2">Bezirksliga Staffel 2 m&aumlnnliche D</option>
+				<option value="mJD-BZL-3">Bezirksliga Staffel 3 m&aumlnnliche D</option>
+				<option value="mJD-Pok">Pokal m&aumlnnliche D</option>
+				<option value="mJD-BZL-O">Bezirksliga Ost m&aumlnnliche D</option>
+				<option value="mJD-BZL-M<">Bezirksliga Mitte m&aumlnnliche D</option>
+				<option value="mJD-BZL-W">Bezirksliga West m&aumlnnliche D</option>
+				<option value="mJE-BZL-1">Bezirksliga Staffel 1 m&aumlnnliche E</option>
+				<option value="mJE-BZL-2">Bezirksliga Staffel 2 m&aumlnnliche E</option>
+				<option value="mJE-BZL-3">Bezirksliga Staffel 3 m&aumlnnliche E</option>
+				<option value="mJE-BZL-4">Bezirksliga Staffel 4 m&aumlnnliche E</option>
+				<option value="mJE-Pok">Pokal m&aumlnnliche E</option>
+				<option value="mJE-BZL-O">Bezirksliga Ost m&aumlnnliche E</option>
+				<option value="mJE-BZL-S">Bezirksliga S&uumld m&aumlnnliche E</option>
+				<option value="mJE-BZL-W">Bezirksliga West m&aumlnnliche E</option>
+				<option value="mJE-BZL-N">Bezirksliga Nord m&aumlnnliche E</option>
+				<option value="wJA-SLL">Saarlandliga weibliche A</option>
+				<option value="wJB-SLL">Saarlandliga weibliche B</option>
+				<option value="wJB-Pok">Pokal weibliche B</option>
+				<option value="wJC-SLL">Saarlandliga weibliche C</option>
+				<option value="wJC-BZL">Bezirkliga weibliche C</option>
+				<option value="wJC-Pok">Pokal weibliche C</option>
+				<option value="wJD-BZL-1">Bezirksliga Staffel 1 weibliche D</option>
+				<option value="wJD-BZL-2">Bezirksliga Staffel 2 weibliche D</option>
+				<option value="wJD-Pok">Pokal weibliche D</option>
+				<option value="wJD-BZL-O">Bezirksliga Ost weibliche D</option>
+				<option value="wJD-BZL-W">Bezirksliga West weibliche D</option>
+				<option value="wJE-BZL-1">Bezirksliga Staffel 1 weibliche E</option>
+				<option value="wJE-BZL-2">Bezirksliga Staffel 2 weibliche E</option>
+				<option value="wJE-Pok">Pokal weibliche E</option>
+				<option value="wJE-BZL-O">Bezirksliga Ost weibliche E</option>
+				<option value="wJE-BZL-W">Bezirksliga West weibliche E</option>
+				<option value="gJF-O">gemischte F-Jugend Ost</option>
+				<option value="gJF-M">gemischte F-Jugend Mitte</option>
+				<option value="gJF-W">gemischte F-Jugend West</option>
+				<option value="mJD-Pok-ER">Pokal ER m&aumlnnliche Jugend D</option>
+				<option value="mJE-Pok-ER">Pokal ER m&aumlnnliche Jugend E</option>
+				<option value="wJD-Pok-ER">Pokal ER weibliche Jugend D</option>
+				<option value="wJE-Pok-ER">Pokal ER weibliche Jugend E</option>
+			</select>
+		</td>
+	</tr>
+	</tbody></table>
+	<br>
+	<img alt="Figure 1" id="fig1image" src="stats/pngs/M-SLL.png" width="680" height="520">
+	<p class="caption">
+		<span title="Open PDF"><a class="figicon" id="fig1pdf" href="stats/pdfs/M-SLL.pdf"><img alt="Open PDF" onmouseout="pdficon(this, false)" onmouseover="pdficon(this)" src="css/pdf_inactive.png" width="20" height="20"></a></span>
+		<a id="fig1caption" onmousedown="showHide('fig1description')" onmouseout="doCursor()" onmouseover="doCursor()">Figure 1</a>
+	</p>
+</div>
+
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Call to Action Well -->
+
+        <!-- /.row -->
+
+        <!-- /.row -->
+
+        <!-- Content Row -->
+
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <hr>
+    <footer class="py-5 bg-inverse">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; <a href="mailto:michaelscherer92@web.de">Michael Scherer</a> 2018</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- RnBeads JavaScript -->
+    <script src="js/report.js"></script>
+
+</body>
+
+</html>

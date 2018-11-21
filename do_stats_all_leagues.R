@@ -44,18 +44,14 @@ for(i in 1:length(names.leagues)){
                                                      language="en",
                                                      id="id1")
     element <- doc$content[2]
-    element <- strsplit(element,'\r')
+    element <- strsplit(element,'\n')
     element <- element[[1]]
-    has.info <- unlist(lapply(element,function(x){grepl("\n [[:alnum:]]",x)||grepl("\n  [[:alnum:]]",x)}))
+    has.info <- unlist(lapply(element,function(x){grepl(" [[:digit:]] ",x)||grepl("  [[:digit:]] ",x)||grepl("  [[:digit:]][[:digit:]] ",x)||grepl(" [[:digit:]][[:digit:]] ",x)}))
     element <- element[has.info]
-    element <- unlist(lapply(element,function(x){gsub("\n..[[:alnum:]] ","",x)}))
+    element <- unlist(lapply(element,function(x){substr(x,6,nchar(x))}))
     element <- lapply(element,function(x){strsplit(x," ")})
     names <- unlist(lapply(element,function(x){
-      if(x[[1]][1]==""){
-        return(paste(x[[1]][2],x[[1]][3]))
-      }else{
-        return(paste(x[[1]][1],x[[1]][2]))
-      }
+       return(paste(x[[1]][1],x[[1]][2]))
     })) 
     goals <- unlist(lapply(element,function(x){
       has.goals <- grepl("[[:digit:]]",x[[1]])&!(grepl("[[:punct:]]",x[[1]]))
@@ -71,7 +67,7 @@ for(i in 1:length(names.leagues)){
     if(nrow(df)==0){
       return(df)
     }
-    invalid.strings <- c("Nr.","Nr. Name","A ","A NA","\n A","B ","B NA","\n B","C ","C NA","\n C","D ","D NA","\n D")
+    invalid.strings <- c("Nr.","Nr. Name","A ","A NA","\n A","B ","B NA","\n B","C ","C NA","\n C","D ","D NA","\n D"," SV")
     is.invalid <- unlist(lapply(as.character(df$names),function(x){any(unlist(lapply(invalid.strings,function(y){y %in% x})))}))
     df <- df[!is.invalid,]
     df

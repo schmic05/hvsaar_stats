@@ -19,8 +19,8 @@ for(j in 1:length(both.urls)){
   ids.leagues <- strsplit(unlist(lapply(info.leagues, function(x)x[1])),"score=")
   ids.leagues <- unlist(strsplit(unlist(lapply(ids.leagues, function(x)x[2])),'[[:punct:]]'))
   
-  #store.folder <- file.path("/home/mscherer/Documents/Handball/hvsaar_stats/stats")
-  store.folder <- file.path("C://Users/Acer/Documents/Handball/stats/test/")
+  store.folder <- file.path("/home/mscherer/Documents/Handball/hvsaar_stats/stats")
+  #store.folder <- file.path("C://Users/Acer/Documents/Handball/stats/test/")
   png.folder <- file.path(store.folder,'pngs')
   pdf.folder <- file.path(store.folder,'pdfs')
   if(!dir.exists(store.folder)){

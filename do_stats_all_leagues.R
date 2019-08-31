@@ -18,6 +18,8 @@ for(j in 1:length(both.urls)){
   names.leagues <- unlist(lapply(names.leagues, function(x)x[1]))
   ids.leagues <- strsplit(unlist(lapply(info.leagues, function(x)x[1])),"score=")
   ids.leagues <- unlist(strsplit(unlist(lapply(ids.leagues, function(x)x[2])),'[[:punct:]]'))
+  names.leagues <- names.leagues[!is.na(ids.leagues)]
+  ids.leagues <- ids.leagues[!is.na(ids.leagues)]
   
   store.folder <- file.path("/home/mscherer/Documents/Handball/hvsaar_stats/stats")
   #store.folder <- file.path("C://Users/Acer/Documents/Handball/stats/test/")

@@ -25,10 +25,12 @@ for(j in 1:length(both.urls)){
   #store.folder <- file.path("C://Users/Acer/Documents/Handball/stats/test/")
   png.folder <- file.path(store.folder,'pngs')
   pdf.folder <- file.path(store.folder,'pdfs')
+  csv.folder <- file.path(store.folder,"csv")
   if(!dir.exists(store.folder)){
     dir.create(store.folder)
     dir.create(png.folder)
     dir.create(pdf.folder)
+    dir.create(csv.folder)
   }
   
   for(i in 1:length(names.leagues)){
@@ -86,6 +88,8 @@ for(j in 1:length(both.urls)){
       to.plot <- aggregate(df$goals,by=list(df$names),sum,na.rm=T)
       colnames(to.plot) <- c("Name","Tore")
       to.plot$Name <- factor(to.plot$Name, levels = to.plot$Name[order(to.plot$Tore)])
+      file.name <- paste0(league,'.csv')
+      write.csv(to.plot,file.path(csv.folder,file.name),row.names = F)
       q <- quantile(to.plot$Tore,.9)
       to.plot <- to.plot[to.plot$Tore>q,]
       plot <- ggplot(to.plot,aes(x=Name,y=Tore))+geom_bar(stat = "identity")+theme(

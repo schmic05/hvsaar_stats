@@ -34,6 +34,13 @@ function pdficon(el, activate) {
 	el.src = imgprefix + 'pdf' + '_' + imgsuffix + '.png'
 }
 
+function csvicon(el, activate) {
+	var i = el.src.lastIndexOf('/')
+	var imgprefix = (i == -1) ? '' : (el.src.substr(0, i) + '/')
+	var imgsuffix = (typeof activate === 'undefined' || activate) ? 'active' : 'inactive'
+	el.src = imgprefix + 'csv' + '_' + imgsuffix + '.png'
+}
+
 function updateFigure(figid) {
 	var imageel = document.getElementById(figid + 'image')
 	var imagesrc = imageel.src
@@ -60,6 +67,12 @@ function updateFigure(figid) {
 		i = imagep.href.lastIndexOf('/')
 		imaged = (i == -1) ? '' : imagep.href.substr(0, i + 1)
 		imagep.href = imaged + imagef + '.pdf'
+	}
+	var imagec = document.getElementById(figid + 'csv')
+	if (imagec) {
+		i = imagec.href.lastIndexOf('/')
+		imaged = (i == -1) ? '' : imagec.href.substr(0, i + 1)
+		imagec.href = imaged + imagef + '.csv'
 	}
 	var imageh = document.getElementById(figid + 'imagehigh')
 	if (imageh) {

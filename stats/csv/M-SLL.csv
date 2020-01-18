@@ -1,9 +1,9 @@
 "Name","Tore"
 "Aaron Braun",4
 "Alexander Bernardy",0
-"Alexander Deckarm",8
+"Alexander Deckarm",9
 "Alexander Eusterholz",27
-"Alexander Herzig",37
+"Alexander Herzig",48
 "Alexander Sauder",25
 "Alexander Sema",29
 "Alexander Wolfram",65
@@ -53,7 +53,7 @@
 "Eric Werle",37
 "Erik Pohland",0
 "Fabian Abel",30
-"Fabian Becker",32
+"Fabian Becker",33
 "Fabian Großmann",4
 "Fabian Naumann",7
 "Fabian Roth",1
@@ -106,7 +106,7 @@
 "Jonas Haupenthal",0
 "Jonas Hubertus",0
 "Jonas Ohlmann",6
-"Jonas Peifer",15
+"Jonas Peifer",17
 "Jonas Speicher",17
 "Jonas Wörner",5
 "Jonas Ziegler",7
@@ -128,7 +128,7 @@
 "Kai Nonnweiler",1
 "Karsten Roser",7
 "Kevin Hinsberger",0
-"Kevin König",11
+"Kevin König",13
 "Kevin Singh",54
 "Lars Cullman",0
 "Lars Gräbel",0
@@ -138,7 +138,7 @@
 "Lars Schlicker",51
 "Lars Scholly",10
 "Lars Zimmer",21
-"Lennart Poncelet",23
+"Lennart Poncelet",25
 "Leon Scheid",30
 "Leonard Frisch",9
 "Leonard Schikofski",5
@@ -177,7 +177,7 @@
 "Martin Knoll",7
 "Martin Rokay",8
 "Marvin Hoff",31
-"Marvin Schug",13
+"Marvin Schug",16
 "Marvin Theobald",1
 "Mathias Mohn",4
 "Matthias Böhm",82
@@ -186,7 +186,7 @@
 "Max Engel",16
 "Max Laier",3
 "Max Loschky",0
-"Maximilian Junius",20
+"Maximilian Junius",22
 "Maximilian Loschky",0
 "Maximilian Sema",12
 "Michael Arnold",33
@@ -215,13 +215,13 @@
 "Niklas Ruster",2
 "Nils Groß",29
 "Nils Hector",8
-"Nils Lauer",82
+"Nils Lauer",85
 "Nils Schneider",0
 "Norman Kelkel",2
 "Oliver Gress",4
 "Oliver Zeitz",41
 "Pascal Boeckmann",0
-"Pascal Paul",11
+"Pascal Paul",14
 "Patrick Gerath",0
 "Patrick Guldner",3
 "Patrick Nicola",2
@@ -236,7 +236,7 @@
 "Philipp Kockler",22
 "Philipp Krangemann",37
 "Philipp Kuhn",10
-"Philipp Leffer",39
+"Philipp Leffer",44
 "Philipp Meiser",104
 "Philipp Rauchschwalbw",0
 "Philipp Sauder",0
@@ -244,16 +244,16 @@
 "Phillip Kewenig",40
 "Phillipp Stopp",2
 "Pilipp Stopp",2
-"Pius Amann",13
+"Pius Amann",15
 "Ralf Kreibig",49
-"Ralf Wilhelm",31
+"Ralf Wilhelm",32
 "Ralph Rechkemmer",3
 "Robin Näckel",0
 "Robin Schweitzer",12
 "Roman Kolepp",10
 "Rouven Latz",1
 "Ruwen Schäfer",25
-"Samir Altpeter",18
+"Samir Altpeter",19
 "Sascha Becker",63
 "Sebastian Berger",8
 "Sebastian Blatt",11
@@ -283,12 +283,12 @@
 "Till Hasper",5
 "Till Pankuweit",91
 "Tim Andler",6
-"Tim Dax",31
+"Tim Dax",39
 "tim Laier",7
 "Tim Laier",2
 "Tim Leidinger",1
 "Tim Reinert",3
-"Timm Reinert",26
+"Timm Reinert",27
 "Timo Scherer",42
 "Timo Spaniol",9
 "Timo Wallrich",53
@@ -300,7 +300,7 @@
 "Tobias Lorenz",13
 "Tobias Ranft",22
 "Tobias Schwindling",6
-"Tobias Seiler",9
+"Tobias Seiler",14
 "Tom Ihl",1
 "Tomas Schlegel",26
 "Torsten Fels",0
@@ -311,7 +311,7 @@
 "Wolfgang Braun",0
 "Yannick Engel",0
 "Yannick Kiefer",1
-"Yannick Pressmann",72
+"Yannick Pressmann",75
 "Yannik Jungblut",52
 "Yannis Thiel",19
 "Zimmer Torsten",6

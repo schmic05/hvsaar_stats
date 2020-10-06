@@ -21,7 +21,7 @@ for(j in 1:length(both.urls)){
   names.leagues <- names.leagues[!is.na(ids.leagues)]
   ids.leagues <- ids.leagues[!is.na(ids.leagues)]
   
-  store.folder <- file.path("/home/mscherer/Documents/Handball/hvsaar_stats/stats")
+  store.folder <- file.path("/home/mscherer/Handball/hvsaar_stats/stats")
   #store.folder <- file.path("C://Users/Acer/Documents/Handball/stats/test/")
   png.folder <- file.path(store.folder,'pngs')
   pdf.folder <- file.path(store.folder,'pdfs')
